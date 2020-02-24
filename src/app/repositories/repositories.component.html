@@ -1,0 +1,31 @@
+<h2 class="text-center my-4">Starred Repos in Github</h2>
+
+<div class="card m-3" *ngFor="let repo of repos">
+  <div class="row no-gutters">
+    <div class="col-md-2">
+      <img src="{{repo.owner.avatar_url}}" class="card-img " alt="avatar">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="{{repo.html_url}}">{{repo.name}}</a></h5>
+        <p class="card-text">{{repo.description}}</p>
+        <p class="card-text"><a href="{{repo.owner.html_url}}"><small
+              class="text-muted">{{repo.owner.login}}</small></a></p>
+      </div>
+    </div>
+    <div class="col-md-2 my-auto">
+      <span class="badge badge-success d-block m-2 py-2">Stars: {{repo.stargazers_count}}</span>
+      <span class="badge badge-danger d-block m-2 py-2">Issues: {{repo.open_issues_count}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center my-3">
+  <button type="button" class="btn btn-primary mx-2" (click)="previousPage()" [disabled]="this.service.page === 1">
+    Previous
+  </button>
+  <button type="button" class="btn btn-primary mx-2" (click)="nextPage()">
+    Next
+  </button>
+
+</div>
