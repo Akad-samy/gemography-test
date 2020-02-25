@@ -1,4 +1,4 @@
-import { RepositoriesComponent } from './repositories/repositories.component';
+import { RepositoriesComponent } from './components/repositories/repositories.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

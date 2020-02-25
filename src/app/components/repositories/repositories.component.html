@@ -1,5 +1,9 @@
 <h2 class="text-center my-4">Starred Repos in Github</h2>
 
+<div *ngIf="loader" style="text-align: center; margin: 50px 0">
+  <img src="../../assets/icons/loader.svg" alt="">
+</div>
+
 <div class="card m-3" *ngFor="let repo of repos">
   <div class="row no-gutters">
     <div class="col-md-2">

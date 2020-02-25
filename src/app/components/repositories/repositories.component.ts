@@ -1,4 +1,4 @@
-import { RepositoryService } from './../services/repository.service';
+import { RepositoryService } from '../../services/repository.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
@@ -8,7 +8,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./repositories.component.css']
 })
 export class RepositoriesComponent implements OnInit {
+
   repos: any[];
+  loader: boolean = true;
 
   constructor(private service: RepositoryService, public datePipe: DatePipe) {}
 
@@ -31,8 +33,12 @@ export class RepositoriesComponent implements OnInit {
   // get Data from Api
 
   getData() {
+    this.loader = true;
+    window.scrollTo(0, 0);
+    this.repos = [];
     this.service.getRepos().subscribe((data: any[]) => {
       this.repos = data['items'];
+      this.loader = false;
     });
   }
 }
